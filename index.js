@@ -7,6 +7,7 @@ const app = express();
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 
+let reqCount = 1;
 // Put all API endpoints under '/api'
 app.get("/api/passwords", (req, res) => {
   const count = 5;
@@ -19,7 +20,8 @@ app.get("/api/passwords", (req, res) => {
   // Return the "passwords" as a JSON object
   res.json(passwords);
 
-  console.log(`Sent ${count} passwords`);
+  console.log(`Request ${reqCount} -- Sent ${count} passwords`);
+  reqCount += 1;
 });
 
 // The 'catchall' handler: for any request that doesn't match

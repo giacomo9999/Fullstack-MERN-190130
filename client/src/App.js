@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Container, Header } from "semantic-ui-react";
+import { Container, Header, List, Button } from "semantic-ui-react";
 
 class App extends Component {
   // Initialize state
@@ -20,17 +20,24 @@ class App extends Component {
 
   render() {
     const { passwords } = this.state;
+    const passList = passwords.map((entry, index) => (
+      <List.Item key={index}>{entry}</List.Item>
+    ));
+
     return (
-      <Container text>
-        <Header as="h2">Header</Header>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-          Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-          aliquet nec, vulputate eget, arcu.
-        </p>
+      <Container text textAlign="center">
+        <br />
+        {passwords.length ? (
+          <div>
+            <Header as="h2">5 Passwords</Header>
+            <List>{passList}</List>
+            <Button  primary content='Get More' onClick={this.getPasswords} />
+          </div>
+        ) : (
+          <div>
+            <Button  primary content='Try Again?' onClick={this.getPasswords} />
+          </div>
+        )}
       </Container>
     );
   }
