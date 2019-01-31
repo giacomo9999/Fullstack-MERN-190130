@@ -1,8 +1,27 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
 const path = require("path");
 const generatePassword = require("password-generator");
+require("dotenv").config();
+const mongoDB = process.env.MONGO_DB;
 
 const app = express();
+console.log(mongoDB);
+
+mongoose
+  .connect(
+    mongoDB,
+    { useNewUrlParser: true }
+  )
+  .then(
+    () => {
+      console.log("Database is connected.");
+    },
+    err => {
+      console.log("Cannot connect");
+    }
+  );
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
