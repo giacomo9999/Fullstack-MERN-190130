@@ -1,4 +1,6 @@
-Based on material at https://daveceddia.com/deploy-react-express-app-heroku/ and https://coursework.vschool.io/deploying-mern-with-heroku/
+Based on material at https://daveceddia.com/deploy-react-express-app-heroku/
+and https://coursework.vschool.io/deploying-mern-with-heroku/
+and https://codeburst.io/writing-a-crud-app-with-node-js-and-mongodb-e0827cbbdafb
 
 Deployed app: https://sleepy-escarpment-26460.herokuapp.com/
 
