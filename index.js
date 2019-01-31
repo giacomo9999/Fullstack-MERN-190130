@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const path = require("path");
@@ -6,8 +7,14 @@ const generatePassword = require("password-generator");
 require("dotenv").config();
 const mongoDB = process.env.MONGO_DB;
 
+const user = require("./routes/user.route");
+const encTable = require("./routes/encTable.route");
+
 const app = express();
 console.log(mongoDB);
+
+app.use("/users", user);
+app.use("/encTables", encTable);
 
 mongoose
   .connect(
