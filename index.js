@@ -13,6 +13,8 @@ const encTable = require("./routes/encTable.route");
 const app = express();
 console.log(mongoDB);
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/users", user);
 app.use("/encTables", encTable);
 
